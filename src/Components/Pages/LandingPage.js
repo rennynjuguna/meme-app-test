@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import '../../App.css'
+import '../../App.css';
+import Navbar from '../Navbar';
 
 export default function LandingPage() {
     return (
+        <main>
+        <Navbar />
         <header style={ HeaderStyle }>
             <h1 className="main-title-text-center">Login / Register page</h1>
             <p className="main-para-text-center"><marquee>Welcome to Laugh with Us</marquee></p>
@@ -16,6 +19,7 @@ export default function LandingPage() {
                 </Link>
             </div>
         </header>
+        </main>
     )
 }
 

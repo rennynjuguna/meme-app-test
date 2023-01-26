@@ -45,29 +45,27 @@ export default function HomePage() {
 
     return(   
         <main>
-        <Navbar />
         <div className="form">
-            <input 
-            type="text"
-            className="form--inputs" 
-            placeholder="Top text"
-            name="topText"
-            value={meme.topText}
-            onChange = {handleChange}
-
-            />
-
-            <button className="form--button"
-            onClick={getMemeImage}>
-            Get a new meme  🖼
-            </button>
+                    <button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                    onClick={getMemeImage}
+                    type="button">
+                    Get a new meme 🖼
+                    </button>
+                    <br></br>
         </div>
+        <div className="meme-container">  
+                <div className="meme">
+                    <pre>{JSON.stringify(setAllMemes,null,2)}</pre>
+                    <img src={meme.randomImage} alt="meme-random" className="meme--image"/>
+                    <h3 className="top--text">{meme.topText}</h3>
+                    <h3 className="bottom--text">{meme.bottomText}</h3>
+                </div>
 
-        <div className="meme">
-        <pre>{JSON.stringify(setAllMemes,null,2)}</pre>
-        <img src={meme.randomImage} alt="meme-random" className="meme--image"/>
-        <h3 className="top--text">{meme.topText}</h3>
-        <h3 className="bottom--text">{meme.bottomText}</h3>
+                <div className="meme-details">
+                    {/* <p> Meme name </p>
+                    <p> Width </p>
+                    <p> Height </p> */}
+                </div>
         </div>
        
         </main>

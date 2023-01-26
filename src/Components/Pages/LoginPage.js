@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import HomePage from './HomePage';
+import Navbar from '../Navbar';
 
 import '../../App.css'
 
@@ -42,39 +43,42 @@ export default function SignInPage() {
     
     if (isLoggedIn) {
         return (
-            <div>
-            <h1>Welcome, {userData.username}</h1>
-            <HomePage />
-            
-            <button onClick={handleLogout}>Logout</button>
+            <div>            
+                <Navbar />
+                <div className='flex justify-center'>
+                    <h1>Welcome, {userData.username} &nbsp; &nbsp;</h1>  
+                    <button onClick={handleLogout} type="button" class="self-end py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Logout</button>
+                </div>
+                <HomePage />
             </div>
         );
     } else {
         return (
-                <div className="text-center m-5-auto">
-                    <h2>Sign in to us</h2>
-                    <form onSubmit={handleLogin} >
-                        <p>
-                            <label>Username</label><br/>
-                            <input type="text" name="first_name"  required value={username} onChange={e => setUsername(e.target.value)} />
-                        </p>
-                        <p>
-                            <label>Password</label>
-                            <br/>
-                            <input type="password" name="password" required value={password} onChange={e => setPassword(e.target.value)}/>
-                        </p>
-                        <p>
-                            <button id="sub_btn" type="submit">Login</button>
-                        </p>
-                    </form>
+                <main>
+                    <Navbar />
+                    <div className="text-center m-5-auto">
+                        <h2>Sign in to us</h2>
+                        <form onSubmit={handleLogin}>
+                            <p>
+                                <label>Username</label><br/>
+                                <input type="text" name="first_name"  required value={username} onChange={e => setUsername(e.target.value)} />
+                            </p>
+                            <p>
+                                <label>Password</label>
+                                <br/>
+                                <input type="password" name="password" required value={password} onChange={e => setPassword(e.target.value)}/>
+                            </p>
+                            <p>
+                                <button id="sub_btn" type="submit">Login</button>
+                            </p>
+                        </form>
         
-                    <div className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:text-green-400 " role="alert" id='message'></div>
-        
-                    <footer>
-                        <p>First time? <Link to="/register">Create an account</Link>.</p>
-                        <p><Link to="/">Back to Homepage</Link>.</p>
-                    </footer>
-                </div>
+                        <footer>
+                            <p className='text-green-500'>First time? <Link to="/register">Create an account</Link>.</p>
+                            <p className='text-sky-400'><Link to="/">Back to Homepage</Link>.</p>
+                        </footer>
+                    </div>
+                </main>
                 );
         
     }

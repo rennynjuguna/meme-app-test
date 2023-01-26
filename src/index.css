@@ -22,13 +22,25 @@ body{
   display:inline-flex;
 }
 
-.memes {
-  
+.meme-container{
+  display: flex;
+  justify-content: center;
 }
 
-
 .meme {
-  text-align: center;
+  height: 700px;
+  width: 700px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.meme-details{
+  align-self: end;
 }
 
 * {

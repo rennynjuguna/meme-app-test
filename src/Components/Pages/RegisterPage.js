@@ -1,5 +1,6 @@
 import React , { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Navbar from '../Navbar';
 
 
 export default function SignUpPage() {
@@ -65,35 +66,37 @@ export default function SignUpPage() {
     } else {
 
     return (
-        <div className="text-center m-5-auto">
-            <h2>Join us</h2>
-            <h5>Create your personal account</h5>
-            <form onSubmit={handleRegistration}>
-                <p>
-                    <label>Username</label><br/>
-                    <input type="text" name="first_name" required value={username} onChange={e => setUsername(e.target.value)}/>
-                </p>
-                <p>
-                    <label>Password</label><br/>
-                    <input type="password" name="password" required value={password} onChange={e => setPassword(e.target.value)}/>
-                </p>
-
-                <div id='submit-section'>
-                    <p className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:text-green-400 " role="alert" id='message'></p>
-
+        <main>
+            <Navbar />
+            <div className="text-center m-5-auto">
+                <h2>Join us</h2>
+                <h5>Create your personal account</h5>
+                <form onSubmit={handleRegistration}>
                     <p>
-                        <button id="sub_btn" type="submit">Register</button>
+                        <label>Username</label><br/>
+                        <input type="text" name="first_name" required value={username} onChange={e => setUsername(e.target.value)}/>
                     </p>
-                </div>
-                
+                    <p>
+                        <label>Password</label><br/>
+                        <input type="password" name="password" required value={password} onChange={e => setPassword(e.target.value)}/>
+                    </p>
 
-            </form>
-            
-            <footer>
-                <p><Link to="/login"> Proceed to login... </Link>.</p>
-                <p><Link to="/">Back to Homepage</Link>.</p>
-            </footer>
-        </div>
+                    <div id='submit-section'>
+                        <p className="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:text-green-400 " role="alert" id='message'></p>
+
+                        <p>
+                            <button id="sub_btn" type="submit">Register</button>
+                        </p>
+                    </div>
+                    
+
+                </form>
+                
+                <footer>
+                    <p className="text-slate-400 hover:text-sky-400"><Link to="/login"> Proceed to login... </Link>.</p>
+                </footer>
+            </div>
+        </main>
     )
 
 }
